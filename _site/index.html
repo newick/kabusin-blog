@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="" data-base-relative="/"><head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    <link rel="icon" href="data:,">
+
+    <title>kabusin</title>
+
+    <meta name="description" content=" ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link crossorigin="anonymous" rel="stylesheet" href=/style/bootstrap.min.css>
+    <link href="https://josephk.frama.io/accueil/main.css" rel="stylesheet" type="text/css" />
+    <link crossorigin="anonymous" rel="stylesheet" href="/style/layout.css"><script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default%2Ces2015%2Ces2016%2Ces2017%2Ces2018%2Ces2019%2Ces5%2Ces6%2Ces7%2CString.prototype.replaceAll"></script>
+
+<script>
+  // adapted from https://github.com/ungap/promise-all-settled/blob/ed43b3d9bc2027789c4388aff198141b4feb8f04/esm/index.js (ISC licence)
+  if(!Promise.allSettled){
+    Promise.allSettled = function ($) {'use strict';
+      var self = this;
+      return self.all(
+        $.map(
+          function (value) {
+            return self.resolve(value).then(this.$, this._);
+          },
+          {
+            $: function (value) {
+              return {status: 'fulfilled', value: value};
+            },
+            _: function (reason) {
+              return {status: 'rejected', reason: reason};
+            }
+          }
+        )
+      );
+    };
+  }
+
+</script><script src="https://framasoft.org/nav/nav.js" defer></script>
+</head>
+<body><header id="f-header">
+  <div class="mt-4 px-0 titre-site">
+    <div class="row mx-0 align-items-end justify-content-between">
+      <div class="pl-0 col-lg-8">
+        <a class="name" href="/" title="Accueil">
+          <h1 class="framalibre-title">
+            Framalibre
+            <em>
+              L'annuaire du Libre
+            </em>
+          </h1>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<main id="f-page" class="container">
+            <h1 class="text-center"><span>Accueil</span></h1>
+        <h2 id="pour-démarrer--quest-ce-qui-se-passe-dans-mon-téléphone-portable-">Pour démarrer : Qu’est-ce qui se passe dans mon téléphone portable ?</h2>
+
+<p>Je vous propose d’installer l’application Exodus Privacy, comme n’importe quelle application (il faut aller dans le Google Play Store pour cela, et chercher “Exodus Privacy”). Une fois installée et lancée, Exodus fait un petit tour des applications présentes sur votre téléphone, et vous liste le nombre d’autorisations demandées, ou de pisteurs contenus.</p>
+
+<h2 id="bonus-2--installer-un-bloqueur-de-pub">Bonus 2 : Installer un bloqueur de pub</h2>
+
+<p>Ce qui est top, c’est que sur Firefox on peut installer un bloqueur de pub. Il bloquera les publicités, et permettra de charger les sites plus rapidements ! Recherchez “ublock origin” dans votre moteur de recherche (Qwant ou Google), et installez l’extension ! Ca y est, votre téléphone a un bloqueur de pub d’installé :)</p>
+
+<div class="card h-100">
+    <div class="row h-100 no-gutters">
+        <div class="d-flex align-items-center justify-content-center col-lg-3">
+            <a class="result-link" href="/notices/firefox.html">
+                <img src="/images/logo/Firefox.png" class="liste-notices__image" alt="logo Firefox" />
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <div class="card-body h-100 d-flex flex-column">
+                <h3 class="card-title h4">
+                    <a class="result-link" href="/notices/firefox.html">Firefox</a>
+                </h3>
+                <div class="card-text">Le navigateur web épris de liberté distribué par la Fondation Mozilla.</div>
+                 <a class="btn btn-outline-warning mb-2" href="/notices/firefox.html">
+                    Voir la notice
+                    <i class="fas fa-chevron-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </body>
+</html>

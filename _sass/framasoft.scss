@@ -1,0 +1,476 @@
+// Colors
+// cf. https://framagit.org/framasoft/vue-fs/commons/-/blob/master/src/scss/frama/colors.scss
+// ------------------------------------------------------------------------------------------
+
+$c: (
+  'g': #f7fafc #edf2f7 #e2e8f0 #cbd5e0 #a0aec0 #677890 #4a5568 #2d3748 #1a202c,
+  'm': #fcf7f7 #f7eeed #f0e5e2 #e0cecb #c0a6a0 #916f65 #68524a #48342d #2c1f1a,
+  'f': #fbf5ff #edd8fd #dcbcfa #c194f4 #a87ede #977ac2 #725794 #50386e #3d2957,
+  'b': #ebfdff #b4e8fa #7ddbf0 #42c4e1 #31acce #2b8fb0 #2c6a82 #2a5265 #094157,
+  'v': #fdfff0 #dde69a #c5d368 #a8bb48 #889e3a #6c7e31 #556727 #465422 #364219,
+  'o': #fff9f0 #fee7c8 #fbc98d #f6a055 #fc8e3a #dd6418 #cc4e13 #9c3c1c #7b2f1a,
+  'r': #fff6f5 #fedcd7 #febbb2 #fc8f81 #f57665 #e65740 #d93e25 #c42719 #9c221c,
+  'j': #fffbf0 #fff2c2 #ffdd82 #f2b43f #e09731 #d4820c #c47123 #a3551d #853c17,
+  'd': #ffffff #f1f1f1 #e7e7e7 #d3d3d3 #acacac #767676 #545454 #363636 #1f1f1f,
+);
+
+$bsClass: ('primary', 'secondary', 'dark', 'light', 'info', 'success', 'warning', 'danger', 'muted');
+
+@function c($key, $index) {
+  @return nth(map-get($c, $key), $index);
+}
+
+@function bs($item, $index) {
+  @if $item == 'c' { // color
+    @return c(nth(nth($bsColor, $index), 1), nth(nth($bsColor, $index), 2));
+  }
+
+  @if $item == 'c-1' { // letter
+    @return c(nth(nth($bsColor, $index), 1), nth(nth($bsColor, $index), 2) - 1);
+  }
+
+  @if $item == 'c+1' { // letter
+    @return c(nth(nth($bsColor, $index), 1), nth(nth($bsColor, $index), 2) + 1);
+  }
+}
+
+$bsColor: (('f', 7), ('g', 7), ('g', 8), ('g', 2), ('b', 7), ('v', 6), ('o', 7), ('r', 8), ('d', 7));
+
+$bgcolor: c(g, 3);
+
+$primary: bs(c, 1);
+$secondary: bs(c, 2);
+$dark: bs(c, 3);
+$light: bs(c, 4);
+$info: bs(c, 5);
+$success: bs(c, 6);
+$warning: bs(c, 7);
+$danger: bs(c, 8);
+$muted: bs(c, 9);
+
+$violet: c(f, 7);
+$orange: c(o, 7);
+$bleu: c(b, 7);
+$rouge: c(r, 8);
+$vert: c(v, 6);
+$jaune: c(j, 7);
+$marron: c(m, 7);
+
+/* -------------------------------------------------------------------------- */
+/* New classes
+  f = [f]iolet ; b = bleu ; v = vert ;  o = orange ; r = rouge ; j = jaune ;
+  m = marron ;   g = gris ; l = light ; d = dark ;
+  fb- = background ; fc- = color ; fd- = border */
+:root {
+  --f-primary: #{$primary};
+  --f-secondary: #{$secondary};
+  --f-dark: #{$dark};
+  --f-light: #{$light};
+  --f-info: #{$info};
+  --f-success: #{$success};
+  --f-warning: #{$warning};
+  --f-danger: #{$danger};
+  --f-muted: #{$muted};
+
+  --f-violet: #{$violet};
+  --f-orange: #{$orange};
+  --f-bleu: #{$bleu};
+  --f-rouge: #{$rouge};
+  --f-vert: #{$vert};
+  --f-jaune: #{$jaune};
+  --f-marron: #{$marron};
+
+  --f-body-bg: #{c(g, 3)};
+
+  @each $key, $colors in $c {
+    @for $i from 1 through 9 {
+      --f-#{$key}#{$i}: #{nth($colors, $i)};
+    }
+  }
+}
+
+.violet { color: var(--f-violet); }
+.orange { color: var(--f-orange); }
+.bleu { color: var(--f-bleu); }
+.rouge { color: var(--f-rouge); }
+.vert { color: var(--f-vert); }
+.jaune { color: var(--f-jaune); }
+
+@each $key, $colors in $c {
+  @for $i from 1 through 9 {
+    .fc-#{$key}#{$i} {
+      color: nth($colors, $i);
+    }
+
+    .fb-#{$key}#{$i} {
+      background-color: nth($colors, $i);
+    }
+
+    .fd-#{$key}#{$i} {
+      border-color: nth($colors, $i) !important;
+    }
+  }
+}
+
+@each $key, $colors in $c {
+  @for $i from 1 through 9 {
+    .hover\:fc-#{$key}#{$i}:hover,
+    .focus\:fc-#{$key}#{$i}:focus {
+      color: nth($colors, $i);
+    }
+
+    .hover\:fb-#{$key}#{$i}:hover,
+    .focus\:fb-#{$key}#{$i}:focus {
+        background-color: nth($colors, $i);
+    }
+
+    .hover\:fd-#{$key}#{$i}:hover,
+    .focus\:fd-#{$key}#{$i}:focus {
+      border-color: nth($colors, $i) !important;
+    }
+  }
+}
+
+.fc-light,
+.fa-inverse,
+.text-white {
+  color: c(d, 1);
+}
+
+.fb-light {
+  background-color: c(d, 1);
+}
+
+.fd-light {
+  border-color: c(d, 1) !important;
+}
+
+.fc-dark,
+.text-dark {
+  color: c(d, 9);
+}
+
+.fb-dark {
+  background-color: c(d, 9);
+}
+
+.fd-dark {
+  border-color: c(d, 9) !important;
+}
+
+.fc-0 {
+  color: transparent;
+}
+
+.fb-0 {
+  background-color: transparent;
+}
+
+.fd-0 {
+  border-color: transparent !important;
+}
+
+.hover\:fc-light:hover,
+.focus\:fc-light:focus {
+  color: c(d, 1);
+}
+
+.hover\:fb-light:hover,
+.focus\:fb-light:focus {
+  background-color: c(d, 1);
+}
+
+.hover\:fd-light:hover,
+.focus\:fd-light:focus {
+  border-color: c(d, 1) !important;
+}
+
+.hover\:fc-dark:hover,
+.focus\:fc-dark:focus {
+  color: c(d, 9);
+}
+
+.hover\:fb-dark:hover,
+.focus\:fb-dark:focus {
+  background-color: c(d, 9);
+}
+
+.hover\:fd-dark:hover,
+.focus\:fd-dark:focus {
+  border-color: c(d, 9) !important;
+}
+
+.hover\:fc-0:hover,
+.focus\:fc-0:focus {
+  color: transparent;
+}
+
+.hover\:fb-0:hover,
+.focus\:fb-0:focus {
+  background-color: transparent;
+}
+
+.hover\:fd-0:hover,
+.focus\:fd-0:focus {
+  border-color: transparent !important;
+}
+
+// Commons
+// cf. https://framagit.org/framasoft/vue-fs/commons/-/blob/master/src/scss/frama/common.scss
+// ------------------------------------------------------------------------------------------
+
+html, body {
+  background: var(--f-body-bg);
+  color: var(--f-d9);
+}
+
+h1, h3, h4, h5, h6,
+.h1, .h3, .h4, .h5, .h6 {
+  color: var(--f-g7);
+}
+
+h1, .h1,
+h2, .h2 {
+  color: var(--f-f8);
+}
+
+h2::after {
+  content: none;
+}
+
+h3, .h3 {
+  color: var(--f-f7);
+}
+
+header h1 {
+  font-family: "DejaVu Sans",Verdana,Geneva,sans-serif;
+  font-size: 42px;
+
+  .frama, .soft, .logiciel, .culture, .services, .vrac,
+  .violet, orange, .bleu, .rouge, .vert, jaune {
+    font-weight: bold;
+  }
+}
+
+[data-url*="//framacarte.org"] {
+  .big-title a {
+    font-size: inherit;
+  }
+}
+
+header .lead, .lead {
+  font-style:italic;
+}
+
+.trait { /* hr */
+  background-color: var(--f-g2);
+  height: 11px;
+  margin: 15px 0px;
+  border: medium none;
+}
+
+.ombre {
+  background-color: var(--f-d1);
+  -webkit-box-shadow: var(--f-shadow);
+  -moz-box-shadow: var(--f-shadow);
+  box-shadow: var(--f-shadow);
+}
+
+.container.ombre {
+  padding: 20px 30px;
+
+  #tuto-faq,
+  #tuto-video,
+  #le-logiciel,
+  #jardin {
+    h2 + p,
+    h2 + span {
+      i.fa,
+      span.glyphicon,
+      i.glyphicon,
+      .svg-icon {
+        font-size:42px;
+        color: var(--f-g6);
+        fill: var(--f-g6);
+      }
+    }
+  }
+}
+
+@media (min-width:576px) {
+  .container.ombre {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+img.ombre {
+  box-shadow: var(--f-img-shadow);
+  margin:10px;
+  padding:0;
+  width:90%;
+}
+
+.signature {
+  font-style: italic;
+  text-align:right;
+  color:var(--f-g6);
+}
+
+.modal-backdrop {
+  opacity: 0.5;
+}
+
+// Buttons
+// cf. https://framagit.org/framasoft/vue-fs/commons/-/blob/master/src/scss/frama/bootstrap4/buttons.scss
+// ------------------------------------------------------------------------------------------------------
+
+.btn-soutenir { /* = btn-warning */
+  color: c(d, 1);
+  background: c(o, 7);
+  border-color: c(o, 7);
+
+  &:hover,
+  &:focus, &.focus {
+    color: c(d, 1);
+    background: darken(c(o, 7), 7.5%);
+    border-color: darken(c(o, 7), 10%);
+  }
+
+  &:focus, &.focus{
+    box-shadow: 0 0 0 0.2rem rgba(212, 105, 54, 0.5);
+  }
+
+  &.disabled, &:disabled {
+    color: c(d, 1);
+    background: c(o, 6);
+    border-color: c(o, 5);
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    color: c(d, 1);
+    background: darken(c(o, 7), 10%);
+    border-color: darken(c(o, 7), 12.5%);
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(212, 105, 54, 0.5);
+    }
+  }
+}
+
+.btn-outline-soutenir {
+  color: c(o, 7);
+  border-color: c(o, 7);
+  i::before { color: c(o, 6); }
+
+  &:hover {
+    color: c(d, 1);
+    background: c(o, 7);
+    border-color: c(o, 7);
+    i::before { color: c(d, 1); }
+  }
+
+  &:focus, &.focus {
+    box-shadow: 0 0 0 0.2rem rgba(204, 78, 19, 0.5);
+  }
+
+  &.disabled, &:disabled {
+    color: c(o, 7);
+    background-color: transparent;
+    i::before { color: c(o, 6); }
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    color: c(d, 1);
+    background: c(o, 7);
+    border-color: c(o, 7);
+    i::before { color: c(d, 1); }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(1204, 78, 19, 0.5);
+    }
+  }
+}
+
+@for $i from 1 through 9 {
+  @if $i != 4 { // not btn-light
+    .btn-#{nth($bsClass, $i)} {
+      i::before { color: c(d, 1); }
+
+      &:hover,
+      &:focus, &.focus {
+        i::before { color: c(d, 1); }
+      }
+
+      &.disabled, &:disabled {
+        i::before { color: c(d, 1); }
+      }
+
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active {
+        i::before { color: c(d, 1); }
+      }
+    }
+
+    .btn-outline-#{nth($bsClass, $i)} {
+      i::before { color: bs('c-1', $i); }
+
+      &:hover,
+      &:focus, &.focus {
+        i::before { color: c(d, 1); }
+      }
+
+      &.disabled, &:disabled {
+        i::before { color: bs('c-1', $i); }
+      }
+
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active {
+        i::before { color: c(d, 1); }
+      }
+    }
+  }
+}
+
+// Links
+// cf. https://framagit.org/framasoft/vue-fs/commons/-/blob/master/src/scss/frama/bootstrap4/links.scss
+// ----------------------------------------------------------------------------------------------------
+
+.btn-link,
+p > a:not(.btn),
+p > small a:not(.btn),
+li:not([class]) > a:not(.btn),
+li:not([class]) > small a:not(.btn) {
+  color: c(d, 9);
+  text-decoration: none;
+  background-image:
+    linear-gradient(c(o, 5),c(o, 5)),
+    linear-gradient(c(g, 5),c(g, 5));
+  background-size: 0% 2px, 100% 2px;
+  background-position: center bottom, center bottom;
+  transition: background-size 0.25s ease-in-out;
+  background-repeat: no-repeat;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  i::before { color: c(d, 8); }
+
+  &:hover, &:focus {
+    color: c(g, 9);
+    text-decoration: none;
+    background-size: 100% 2px;
+    i::before { color: c(g, 8); }
+  }
+}
+
+// Badges
+// cf. https://framagit.org/framasoft/vue-fs/commons/-/blob/master/src/scss/frama/bootstrap4/badge.scss
+// ----------------------------------------------------------------------------------------------------
+.badge i::before {
+  color: c(d, 1);
+}
+
+.badge.badge-light i::before {
+  color: c(d, 8);
+}

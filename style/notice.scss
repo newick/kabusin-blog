@@ -1,0 +1,80 @@
+---
+---
+
+@import 'framalibre-common';
+
+#f-page {
+  article.notice{
+    .notice-logo {
+      width: 100%;
+      object-fit: contain;
+      max-height: 9rem;
+      margin-bottom: 2rem;
+    }
+
+    a.tag {
+      color: var(--f-f8);
+      border: 1px solid var(--f-f8);
+
+      &:hover,
+      &:active {
+        color: var(--f-g2);
+        background-color: var(--f-f8);
+      }
+    }
+
+      .logo-lien{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+
+          & > * {
+              flex: 1;
+          }
+
+          img{
+              object-fit: scale-down;
+              max-width: 50%;
+              max-height: 10rem;
+          }
+
+
+          a{
+              max-width: 13rem;
+              margin: 0 0.5rem;
+          }
+      }
+
+      h1 {
+        margin-bottom: 2rem;
+
+        @media (min-width: 768px) {
+          margin-bottom: 3rem;
+        }
+      }
+
+      h2 {
+          display: inline;
+          font-weight: bold;
+          font-size: 1.3rem;
+          font-family: Tovari Sans,sans-serif;
+      }
+
+      section{
+          margin-bottom: 1rem;
+
+          ul{
+              margin-top: 0.5rem;
+
+              li{
+                  margin-bottom: 1rem;
+              }
+          }
+      }
+  }
+
+  .btn {
+    font-weight: 700;
+  }
+}

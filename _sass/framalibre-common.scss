@@ -1,0 +1,154 @@
+@import 'framasoft';
+
+$break-point: 40rem;
+
+body{
+    background-color: var(--f-body-bg);
+}
+
+header, main{
+  background-color: white;
+
+  h1 {
+    color: var(--f-f1) !important;
+  }
+}
+
+// Overrides Framasoft styles
+#f-page {
+  max-width: 95%;
+
+  @media (min-width: 768px) {
+    max-width: 80%;
+    padding: 1.75rem 4rem;
+  }
+
+  @media (min-width: 75rem) {
+    max-width: 1020px;
+  }
+}
+
+#f-page h1 span {
+  padding: 1rem 1.75rem;
+  font-size: 1.8rem;
+
+  @media (min-width: 768px) {
+    white-space: nowrap;
+    font-size: 2.5rem;
+  }
+}
+
+#f-header h1 {
+  font-size: 3.5rem;
+  font-family: DejaVu Sans,Verdana,Geneva,sans-serif;
+  font-weight: 700;
+}
+
+.tag{
+  text-transform: capitalize;
+}
+
+.card {
+  border: none;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.card-body {
+  padding: 0rem 1rem 0rem .5rem;
+}
+
+#f-page h1 span.title-tag {
+  padding: 0;
+}
+
+// Listes
+.liste-notices{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.liste-notices--mis-en-avant {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.liste-notices__item {
+  margin: 0 1% 1rem 1%;
+  width: 100%;
+
+  @media (min-width: $break-point) {
+    width: calc(96%/3);
+  }
+}
+
+.liste-notices__item:nth-child(3n+1) {
+  margin-left: 0;
+}
+
+.liste-notices__item:nth-child(3n+3) {
+  margin-right: 0;
+}
+
+.mis-en-avant {
+  border: 6px solid var(--f-o6);
+  border-radius: .5rem;
+  margin-bottom: 4rem;
+  background-color: #fff;
+
+  @media (min-width: 768px) {
+    background-color: transparent;
+    padding: 0 1rem;
+  }
+
+  .mis-en-avant__titre {
+    text-align: center;
+    transform: rotate(-2deg);
+
+    &:first-child:is(h3) {
+      margin: -1.6rem auto 1.5rem;
+    }
+  }
+
+  .mis-en-avant__titre__encart {
+    display: inline-block;
+    background: var(--f-o6);
+    padding: .5rem 1rem 0;
+    border-radius: .5rem;
+    color: #fff;
+    font-size: 1.75rem;
+    font-family: Tovari Sans,sans-serif;
+    text-transform: uppercase;
+    line-height: 2rem;
+    font-style: normal;
+    border: 3px solid #fff;
+    max-width: 80%;
+
+    @media (min-width: 768px) {
+      border: 0;
+    }
+  }
+}
+
+.liste-notices__image {
+  max-width: 4rem;
+  max-height: 4rem;
+  object-fit: contain;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+}
+
+.result-link {
+  color: var(--f-g7);
+}
+
+.titre-site {
+  max-width: 95%;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    max-width: 80%;
+    padding: 1.75rem 4rem;
+  }
+}

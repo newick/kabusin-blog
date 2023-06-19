@@ -1,0 +1,88 @@
+---
+layout: default
+styles:
+    - href: "style/notice.css"
+---
+
+<article class="notice">
+    <h1 class="text-center"><span>{{ page.nom }}</span></h1>
+
+    <section class="row align-items-center">
+      <div class="col-lg-6">
+        <img class="notice-logo" src="{{ page.logo.src | relative_url }}" alt="" />
+      </div>
+
+      <div class="col-lg-6">
+        {% assign slug  = page.nom | slugify %}
+
+        <a class="btn btn-outline-warning mb-2" href={{ page.site_web }}>
+          Voir le site
+          <i class="fas fa-chevron-right ml-1"></i>
+        </a>
+
+        <section>
+          <h2>Disponible sur </h2>{{ page.plateformes | join: ", " }}
+        </section>
+        <section>
+          <h2>Langues </h2>{{ page.langues | join: ", "}}
+        </section>
+
+        {% if page.alternative_a != "" %}
+          <section>
+              <h2>Alternative à </h2>{{ page.alternative_a }}
+          </section>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="description">
+        {{ content }}
+    </section>
+
+
+    {% if page.createurices != "" %}
+      <section>
+          <h2>Créateur·ices </h2>{{ page.createurices }}
+      </section>
+    {% endif %}
+
+    <section>
+        <h2>Licence(s) </h2>{{ page.licences | join: ", " }}
+    </section>
+
+    <section>
+        <h2>Mots-clefs</h2>
+
+        {% for tag in page.tags %}
+            {%- include tag-link.html tag=tag -%}
+        {% endfor %}
+    </section>
+
+    {% if page.lien_wikipedia != "" or page.lien_exodus != "" %}
+      <section>
+          <h2>Liens externes</h2>
+          <ul>
+              {% if page.lien_wikipedia != "" %}
+                <li><a href={{ page.lien_wikipedia }}>Lien Wikipédia</a></li>
+              {% endif %}
+
+              {% if page.lien_exodus != "" %}
+                <li><a href={{ page.lien_exodus }}>Lien Exodus Privacy</a></li>
+              {% endif %}
+          </ul>
+      </section>
+    {% endif %}
+
+    <section>
+        Fiche créée le {{ page.date_creation }}
+    </section>
+    <section>
+      <a
+       class="btn btn-outline-warning mt-2 mr-1"
+       href={{ "/contribuer?notice=" | append: slug | relative_url }}
+      >
+        Modifier cette notice
+        <i class="fas fa-chevron-right ml-1"></i>
+      </a>
+    </section>
+</article>

@@ -1,0 +1,7 @@
+<a class="tag btn btn-outline-primary m-1" href="{{ "/par-tag" | relative_url | append: '?tag=' | append: include.tag }}">
+    {{ include.tag }}
+
+    {% if include.count %}
+        ({{ include.count }})
+    {% endif %}
+</a>

@@ -1,0 +1,27 @@
+---
+---
+
+@import 'framalibre-common';
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    label{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+.confirmation {
+  text-align: center;
+}
+
+.confirmation__text {
+  font-size: 1.5rem;
+  margin: 0 auto 3rem;
+  max-width: 80%;
+}
