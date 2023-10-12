@@ -4,6 +4,11 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
+
+.framalibre-notice:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
 .framalibre-notice > div {
     padding: 1.25rem;
 }
@@ -40,4 +45,8 @@
   color: #fff;
   background-color: #cc4e13;
   border-color: #cc4e13;
+}
+
+.framalibre-notice a + a {
+  margin-left: 1rem;
 }

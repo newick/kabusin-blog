@@ -18,8 +18,8 @@ Ce qui est top, c’est que sur Firefox on peut installer un bloqueur de pub. Il
     <h2>Firefox</h2>
     <p>Le navigateur web épris de liberté distribué par la Fondation Mozilla.</p>
     <div>
-      <a href="">Lien vers le site du logiciel <i class="fas fa-chevron-right ml-1"></i></a>
-      <a href="">Lien vers la notice framalibre <i class="fas fa-chevron-right ml-1"></i></a>
+      <a href="">Vers le site <i class="fas fa-chevron-right ml-1"></i></a>
+      <a href="">Vers la notice Framalibre <i class="fas fa-chevron-right ml-1"></i></a>
     </div>
   </div>
 </article>    

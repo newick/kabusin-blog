@@ -1,0 +1,7 @@
+#f-page {
+    padding-inline: 5rem;
+}
+
+#f-page h2:not(:first-of-type) {
+    margin-top: 3rem;
+}
