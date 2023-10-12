@@ -12,3 +12,9 @@
     font-weight: bold;
     color: white;
 }
+
+@media (max-width:576px) {
+    #f-page {
+        padding-inline: 1.5rem;
+    }
+}
