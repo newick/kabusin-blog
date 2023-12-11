@@ -3,8 +3,8 @@
     max-width: 80ch;
 }
 
-#f-page h2:not(:first-of-type) {
-    margin-top: 3rem;
+#f-page article h2:first-of-type {
+    margin-top: 1rem;
 }
 
 .framalibre-title {
