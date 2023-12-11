@@ -1,5 +1,6 @@
 #f-page {
     padding-inline: 5rem;
+    max-width: 80ch;
 }
 
 #f-page h2:not(:first-of-type) {
