@@ -3,6 +3,10 @@
     max-width: 80ch;
 }
 
+#f-page h2 {
+    margin-top: 3rem;
+}
+
 #f-page article h2:first-of-type {
     margin-top: 1rem;
 }
@@ -18,4 +22,5 @@
     #f-page {
         padding-inline: 1.5rem;
     }
+    
 }
