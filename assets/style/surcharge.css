@@ -3,8 +3,31 @@
     max-width: 80ch;
 }
 
+#f-page h1 {
+  font-size: 3rem;
+  color: var(--f-g10);
+  font-family: Tovari Sans,sans-serif;
+  font-size: 2.4rem;
+  line-height: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 #f-page h2 {
-    margin-top: 3rem;
+  color: var(--f-f7);
+  font-size: 1.75rem;
+  margin-top: 3rem;
+}
+
+#f-page article h2 {
+  color: var(--f-g10);
+  font-size: 3rem;
+  margin-top: 3rem;
+}
+
+#f-page h3 {
+  color: var(--f-g7);
+  font-size: 1.75rem;
+  margin-top: 3rem;
 }
 
 #f-page article h2:first-of-type {
