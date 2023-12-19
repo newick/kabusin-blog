@@ -9,7 +9,8 @@
   font-family: Tovari Sans,sans-serif;
   font-size: 2.4rem;
   line-height: 2.5rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
+  transform: rotate(0deg);
 }
 
 #f-page h2 {
@@ -45,5 +46,10 @@
     #f-page {
         padding-inline: 1.5rem;
     }
-    
+
+}
+
+.mini-site__title {
+  margin: -4rem auto 3rem 1rem;
+  transform: rotate(-2deg);
 }
