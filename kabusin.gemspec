@@ -1,5 +1,5 @@
 Gem::Specification.new do |spec|
-  spec.name        = "kabusin"
+  spec.name        = "kabusin-blog"
   spec.version     = "1.0.0"
   spec.authors     = ["Scribouilli"]
   spec.email       = "coucou@scribouilli.org"
